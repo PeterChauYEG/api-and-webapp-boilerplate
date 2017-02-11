@@ -33,8 +33,7 @@ class Root extends Component {
     } = this.props
 
     return (
-      <div className="Root bg-lightest-blue pa3 helvetica">
-        {console.log(this.props)}
+      <div className="Root bg-lightest-blue pa3">
 
       <Minions
         {...this.props}

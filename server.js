@@ -271,7 +271,8 @@ router.route('/minions')
       }
 
       // minions
-      const data = extractMinions(minions)
+      // const data = extractMinions(minions)
+      const data = minions
 
       // send minions back to client
       return res.send(data)

@@ -113,6 +113,9 @@ based on [create-react-app](https://github.com/facebookincubator/create-react-ap
 
 ### CSS
 Favicon - `#333333`
+font - Source Sans Pro
+font-color - `#CCCCCC`
+background-color - `[#00449E, ]`
 
 ### Features
 esLint - Linter (to be implemented)

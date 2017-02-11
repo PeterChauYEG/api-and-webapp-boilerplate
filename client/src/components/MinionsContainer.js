@@ -5,9 +5,10 @@ import Minion from './Minion'
 
 class MinionsContainer extends Component {
   renderMinions(minions) {
-    // handle type
-    if (typeof minions === 'object') {
-      return <p>error loading minions</p>
+  
+    // handle no minions
+    if (minions.length === 0 ) {
+      return <p>There's no minions yet. You should add one!</p>
     }
     
     // map minion data to component
@@ -24,9 +25,8 @@ class MinionsContainer extends Component {
     return (
       <div>
         {
-          minions.length === 0 ?
-            <p>There's no minions yet. You should add one!</p> :
-            this.renderMinions(minions)
+          // render minions
+          this.renderMinions(minions)
         }
       </div>
     )

@@ -108,11 +108,11 @@ class MinionForm extends Component {
                   Name
                 </label>
                 <input
-                  className="pa2 input-reset ba bg-transparent w-100 bw1 b--black"
+                  className="pa2 input-reset ba bg-transparent w-100 bw1 b--near-black"
                   type="text"
                   name="name"
                   id="name"
-                  placeholder="Super Good Stuff"
+                  placeholder="Bob"
                   onChange={this._handleNameChange} />
               </div>
 
@@ -120,15 +120,15 @@ class MinionForm extends Component {
               <div className="mv2">
                 <label
                   className="db"
-                  htmlFor="name">
+                  htmlFor="brand">
                   Brand
                 </label>
                 <input
-                  className="pa2 input-reset ba bg-transparent w-100 bw1 b--black"
+                  className="pa2 input-reset ba bg-transparent w-100 bw1 b--near-black"
                   type="text"
                   name="brand"
                   id="brand"
-                  placeholder="A Dozen Monkeys"
+                  placeholder="Business"
                   onChange={this._handleBrandChange} />
               </div>
 
@@ -140,12 +140,12 @@ class MinionForm extends Component {
                   Description
                 </label>
                 <textArea
-                  className="pa2 input-reset ba bg-transparent w-100 bw1 b--black"
+                  className="pa2 input-reset ba bg-transparent w-100 bw1 b--near-black"
                   type="text"
                   name="description"
                   id="description"
                   rows={5}
-                  placeholder="write a description for this minion"
+                  placeholder="looks like a bob to me"
                   onChange={this._handleDescriptionChange} />
               </div>
             </div>

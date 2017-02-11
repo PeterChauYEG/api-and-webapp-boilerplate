@@ -16,7 +16,8 @@ class Minion extends Component {
 
     return (
       <div className="Minion">
-        <h2>{name} - {brand}</h2>
+        <h2>{name}</h2>
+        <h3>{brand}</h3>
         <p>{description}</p>
       </div>
     );
