@@ -82,7 +82,10 @@ class Login extends Component {
     
     return (
       <div>
-
+        {/* redirect if a token is present */}
+        { user.token != null && (
+          <Redirect to={from || '/'} />
+        )}
         <div className="Login bg-light-blue">
           <div className="form-body">
             <h1>Login</h1>

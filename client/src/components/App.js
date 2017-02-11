@@ -18,21 +18,19 @@ class App extends Component {
         <div>
         
           <Route
-            pattern="/"
+            path="/"
             exactly
             component={(props) => (
               user.token != null ? (
                 <Root {...props} {...this.props} />
               ) : (
-                <Redirect to={{
-                  pathname: '/login',
-                  state: { from: props.location }
-                }}/>
+                <Redirect to="/login" />
               )
             )} />
 
           <Route
-            pattern="/login"
+            path="/login"
+            exactly
             component={(props) => (
               <Login {...props} {...this.props} />
             )} />
