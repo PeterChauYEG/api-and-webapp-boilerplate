@@ -1,24 +1,22 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 // import css
 import '../CSS/HoverActionButton.css'
 import 'font-awesome/css/font-awesome.css'
 
-class HoverActionButton extends Component {
-  render() {
-    const {
-      action,
-      backgroundColor,
-      text,
-    } = this.props
+const HoverActionButton = (props) => {
+  const {
+    action,
+    backgroundColor,
+    text,
+  } = props
 
-    return (
-      <div className={`HoverActionButton ${backgroundColor}`}
-        onClick={action} >
-        <p>{text}</p>
-      </div>
-    );
-  }
+  return (
+    <div className={`HoverActionButton ${backgroundColor}`}
+      onClick={action} >
+      <p>{text}</p>
+    </div>
+  );
 }
 
 HoverActionButton.propTypes = {

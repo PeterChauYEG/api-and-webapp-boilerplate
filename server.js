@@ -20,11 +20,6 @@ import path from 'path'
 // database dep
 import mongoose from 'mongoose'
 
-// import db helpers
-import {
-  extractMinions,
-} from './db/helpers'
-
 // import db models
 import Minion from './db/models/minion'
 import User from './db/models/user'
@@ -99,7 +94,7 @@ app.get('/setup', (req, res) => {
     }
 
     // check if there are already user in the db
-    if (count != 0) {
+    if (count !== 0) {
 
       // exit if there are already user in the DB
       return res.send({
@@ -271,7 +266,6 @@ router.route('/minions')
       }
 
       // minions
-      // const data = extractMinions(minions)
       const data = minions
 
       // send minions back to client

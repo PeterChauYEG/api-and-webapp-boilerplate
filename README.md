@@ -73,6 +73,15 @@ cd ..
 npm start
 ```
 
+### api linting
+```
+npm run lint
+```
+
+uses the same rules as the client to eslint. 
+
+Lints files in the project root and `db/`. This can be configured in the package.json.
+
 ## Access
 The api can be accessed at `/api`
 
@@ -137,6 +146,17 @@ Redux-Saga - Async calls + actions
 ### Routes
 `/` - root
 `/login` - for user login
+
+### Testing
+`npm test` - run unit tests on client and shows test coverage
+
+
+
+
+
+
+
+
 
 with <3,
 

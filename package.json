@@ -25,9 +25,19 @@
     "react-dom": "^15.4.1"
   },
   "scripts": {
-    "start": "nf start -p 8080 --procfile Procfile",
-    "test": "echo test goes here",
     "dev": "nf start -p 8080 --procfile Procfile.dev",
-    "server": "./node_modules/.bin/babel-node server.js"
+    "lint": "eslint *.js db/**",
+    "server": "./node_modules/.bin/babel-node server.js",
+    "start": "nf start -p 8080 --procfile Procfile",    
+    "test": "echo test goes here"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.1.1",
+    "eslint": "^3.15.0",
+    "eslint-config-react-app": "^0.5.1",
+    "eslint-plugin-flowtype": "^2.30.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^6.9.0"
   }
 }

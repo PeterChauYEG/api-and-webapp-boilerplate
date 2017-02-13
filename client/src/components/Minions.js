@@ -27,6 +27,8 @@ class Minions extends Component {
     return (
       <div className="Minions pa4">
         <h1>Minions</h1>
+        
+        {/* render minions */}
         <MinionsContainer minions={minions.minions} />
 
         {

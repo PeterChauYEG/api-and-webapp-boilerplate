@@ -17,6 +17,7 @@ class App extends Component {
       <BrowserRouter>
         <div>
         
+          {/* handle / path */}
           <Route
             path="/"
             exactly
@@ -28,6 +29,7 @@ class App extends Component {
               )
             )} />
 
+          {/* handle /login path */}
           <Route
             path="/login"
             exactly
