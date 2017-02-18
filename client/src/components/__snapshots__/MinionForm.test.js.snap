@@ -1,0 +1,70 @@
+exports[`test renders without crashing 1`] = `
+<div
+  className="MinionForm bg-light-blue">
+  <div
+    className="form-body">
+    <h1>
+      Add a new minion
+    </h1>
+    <div
+      className="flex h-100 w-100 justify-between">
+      <div
+        className="flex flex-column justify-around w-100">
+        <div
+          className="mv2">
+          <label
+            className="db"
+            htmlFor="name">
+            Name
+          </label>
+          <input
+            className="pa2 input-reset ba bg-transparent w-100 bw1 b--near-black"
+            id="name"
+            name="name"
+            onChange={[Function]}
+            placeholder="Bob"
+            type="text" />
+        </div>
+        <div
+          className="mv2">
+          <label
+            className="db"
+            htmlFor="brand">
+            Brand
+          </label>
+          <input
+            className="pa2 input-reset ba bg-transparent w-100 bw1 b--near-black"
+            id="brand"
+            name="brand"
+            onChange={[Function]}
+            placeholder="Business"
+            type="text" />
+        </div>
+        <div
+          className="mv2">
+          <label
+            className="db"
+            htmlFor="description">
+            Description
+          </label>
+          <textArea
+            className="pa2 input-reset ba bg-transparent w-100 bw1 b--near-black"
+            id="description"
+            name="description"
+            onChange={[Function]}
+            placeholder="looks like a bob to me"
+            rows={5}
+            type="text" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="HoverActionButton bg-near-white"
+    onClick={[Function]}>
+    <p>
+      Submit
+    </p>
+  </div>
+</div>
+`;

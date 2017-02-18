@@ -1,17 +1,28 @@
-import React from 'react';
+import React from 'react'
 
 // import test dependencies 
-import { shallow } from 'enzyme';
+import renderer from 'react-test-renderer'
 
 // import component
-import Minions from './MinionsContainer'
+import MinionsContainer from './MinionsContainer'
 
-it('renders without crashing', () => {
+// render test
+test('renders without crashing', () => {
+  
+  // declare prop
   const minions = []
   
-  shallow(
-    <MinionsContainer
+  // render component
+  const component = renderer.create(
+    <MinionsContainer 
       minions={minions}
       />
-  );
+  )
+
+  // render DOM tree
+  const tree = component.toJSON()
+  
+  // assertion
+  expect(tree).toMatchSnapshot()
+  
 });

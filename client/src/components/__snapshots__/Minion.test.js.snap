@@ -1,0 +1,14 @@
+exports[`test renders without crashing 1`] = `
+<div
+  className="Minion">
+  <h2>
+    
+  </h2>
+  <h3>
+    
+  </h3>
+  <p>
+    
+  </p>
+</div>
+`;

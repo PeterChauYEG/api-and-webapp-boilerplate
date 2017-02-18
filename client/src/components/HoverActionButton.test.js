@@ -1,21 +1,32 @@
-import React from 'react';
+import React from 'react'
 
 // import test dependencies 
-import { shallow } from 'enzyme';
+import renderer from 'react-test-renderer'
 
 // import component
 import HoverActionButton from './HoverActionButton'
 
-it('renders without crashing', () => {
+// render test
+test('renders without crashing', () => {
+  
+  // declare prop
   const action = () => {}
   const backgroundColor = ""
   const text = ""
   
-  shallow(
+  // render component
+  const component = renderer.create(
     <HoverActionButton 
       action={action} 
       backgroundColor={backgroundColor} 
       text={text}
       />
-  );
+  )
+
+  // render DOM tree
+  const tree = component.toJSON()
+  
+  // assertion
+  expect(tree).toMatchSnapshot()
+  
 });

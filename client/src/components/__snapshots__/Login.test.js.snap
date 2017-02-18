@@ -1,0 +1,56 @@
+exports[`test renders without crashing 1`] = `
+<div>
+  <div
+    className="Login bg-light-blue">
+    <div
+      className="form-body">
+      <h1>
+        Login
+      </h1>
+      <div
+        className="flex h-100 w-100 justify-between">
+        <div
+          className="flex flex-column justify-center w-100">
+          <div
+            className="mv2">
+            <label
+              className="db"
+              htmlFor="name">
+              Name
+            </label>
+            <input
+              className="pa2 input-reset ba bg-transparent w-100 bw1 b--black"
+              id="name"
+              name="name"
+              onChange={[Function]}
+              placeholder="anon"
+              type="text" />
+          </div>
+          <div
+            className="mv2">
+            <label
+              className="db"
+              htmlFor="password">
+              Password
+            </label>
+            <input
+              className="pa2 input-reset ba bg-transparent w-100 bw1 b--black"
+              id="password"
+              name="password"
+              onChange={[Function]}
+              placeholder="**********"
+              type="password" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="HoverActionButton bg-near-white"
+      onClick={[Function]}>
+      <p>
+        Submit
+      </p>
+    </div>
+  </div>
+</div>
+`;

@@ -1,14 +1,23 @@
-import React from 'react';
+import React from 'react'
 
 // import test dependencies 
-import { shallow } from 'enzyme';
+import renderer from 'react-test-renderer'
 
 // import component
 import App from './App'
 
-it('renders without crashing', () => {
+// render test
+test('renders without crashing', () => {
 
-  shallow(
+  // render component
+  const component = renderer.create(
     <App />
-  );
+  )
+
+  // render DOM tree
+  const tree = component.toJSON()
+  
+  // assertion
+  expect(tree).toMatchSnapshot()
+  
 });

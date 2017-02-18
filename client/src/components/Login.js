@@ -76,9 +76,6 @@ class Login extends Component {
     } = this.state
 
     const { from } = location.state || '/'
-
-    // const token = null
-    console.log(location)
     
     return (
       <div>

@@ -1,0 +1,8 @@
+exports[`test renders without crashing 1`] = `
+<div
+  className="HoverButton "
+  onClick={[Function]}>
+  <i
+    className="fa  fa-2x" />
+</div>
+`;

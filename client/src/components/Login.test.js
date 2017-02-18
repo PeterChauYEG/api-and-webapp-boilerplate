@@ -1,17 +1,37 @@
-import React from 'react';
+import React from 'react'
 
 // import test dependencies 
-import { shallow } from 'enzyme';
+import renderer from 'react-test-renderer'
 
 // import component
 import Login from './Login'
 
-it('renders without crashing', () => {
-  const actions = {}
+// render test
+test('renders without crashing', () => {
   
-  shallow(
+  // declare prop
+  const actions = {
+  }
+  const location = {
+    state: null,
+  }
+  const user = {
+    token: null,
+  }
+  
+  // render component
+  const component = renderer.create(
     <Login
       actions={actions} 
+      location={location}
+      user={user}
       />
-  );
+  )
+
+  // render DOM tree
+  const tree = component.toJSON()
+  
+  // assertion
+  expect(tree).toMatchSnapshot()
+  
 });

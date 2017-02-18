@@ -1,0 +1,7 @@
+exports[`test renders without crashing 1`] = `
+<div>
+  <p>
+    There\'s no minions yet. You should add one!
+  </p>
+</div>
+`;

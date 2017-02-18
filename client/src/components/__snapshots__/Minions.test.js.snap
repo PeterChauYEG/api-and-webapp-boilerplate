@@ -1,0 +1,19 @@
+exports[`test renders without crashing 1`] = `
+<div
+  className="Minions pa4">
+  <h1>
+    Minions
+  </h1>
+  <div>
+    <p>
+      There\'s no minions yet. You should add one!
+    </p>
+  </div>
+  <div
+    className="HoverButton bg-light-blue"
+    onClick={[Function]}>
+    <i
+      className="fa fa-plus fa-2x" />
+  </div>
+</div>
+`;

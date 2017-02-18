@@ -4,25 +4,34 @@ import React from 'react'
 import renderer from 'react-test-renderer'
 
 // import component
-import Minion from './Minion'
+import MinionForm from './MinionForm'
 
 // render test
 test('renders without crashing', () => {
   
   // declare prop
-  const minion = {
-    brand: "",
-    description: "",
-    name: "",
+  const actions = {
+    getMinionsRequest: () => {},
+    toggleMinionForm: () => {},
+  }
+  const minions = {
+    minions: [
+      
+    ],
+  }
+  const user = {
+    token: null,
   }
   
   // render component
   const component = renderer.create(
-    <Minion 
-      minion={minion}
+    <MinionForm
+      actions={actions} 
+      // minions={minions}
+      user={user}
       />
   )
-  
+
   // render DOM tree
   const tree = component.toJSON()
   
