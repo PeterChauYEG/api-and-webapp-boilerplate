@@ -17,17 +17,54 @@ test('renders without crashing', () => {
     minions: [
     ],
   }
+  const user = {
+    
+  }
   
   // render component
   const component = renderer.create(
     <Minions
       actions={actions}
       minions={minions}
+      user={user}
       />
   )
 
   // render DOM tree
   const tree = component.toJSON()
+  
+  // assertion
+  expect(tree).toMatchSnapshot()
+  
+});
+
+// renderForm test
+test('renderForm renders without crashing', () => {
+  
+  // declare prop
+  const actions = {
+    toggleMinionForm: () => {},
+  }
+  const minions = {
+    formIsOpen: "something",
+    minions: [
+    ]
+  }
+  const user = {
+    
+  }
+  
+  // render component
+  const component = renderer.create(
+    <Minions
+      actions={actions}
+      minions={minions}
+      user={user}
+      />
+  )
+
+  // render DOM tree
+  let tree = component.toJSON()
   
   // assertion
   expect(tree).toMatchSnapshot()

@@ -1,3 +1,12 @@
+exports[`test onClick callback is called 1`] = `
+<div
+  className="HoverButton "
+  onClick={[Function]}>
+  <i
+    className="fa  fa-2x" />
+</div>
+`;
+
 exports[`test renders without crashing 1`] = `
 <div
   className="HoverButton "

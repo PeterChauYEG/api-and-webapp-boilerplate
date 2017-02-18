@@ -2,7 +2,6 @@ import React from 'react'
 
 // import css
 import '../CSS/HoverActionButton.css'
-import 'font-awesome/css/font-awesome.css'
 
 const HoverActionButton = (props) => {
   const {

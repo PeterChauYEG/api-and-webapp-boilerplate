@@ -49,6 +49,7 @@ class Minions extends Component {
 Minions.propTypes = {
   actions: React.PropTypes.object.isRequired,
   minions: React.PropTypes.object.isRequired,
+  user: React.PropTypes.object.isRequired,
 }
 
 export default Minions;

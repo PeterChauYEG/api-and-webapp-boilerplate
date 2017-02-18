@@ -11,9 +11,9 @@ test('renders without crashing', () => {
   
   // declare prop
   const minion = {
-    brand: "",
-    description: "",
-    name: "",
+    brand: "brand",
+    description: "description",
+    name: "name",
   }
   
   // render component
