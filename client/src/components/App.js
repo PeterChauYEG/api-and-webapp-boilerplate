@@ -9,6 +9,8 @@ import Login from './Login'
 
 class App extends Component {
   render() {
+    
+    // decontruct props
     const {
       user,
     } = this.props

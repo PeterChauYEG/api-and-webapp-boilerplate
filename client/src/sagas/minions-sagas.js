@@ -2,6 +2,9 @@
 import { takeEvery } from 'redux-saga'
 import { call, put, } from 'redux-saga/effects'
 
+// import action types
+import * as types from '../actions/action-types';
+
 // import api
 import Client from '../Client'
 
@@ -23,7 +26,7 @@ function* addMinion(action) {
     })
 
     // update ui with newly added minion
-    yield put({ type: "ADD_MINION", minion: newMinion })
+    yield put(types.addMinion(newMinion))
 
   } catch (e) {
     console.log(e)
@@ -46,7 +49,7 @@ function* getMinions(action) {
     })
 
     // update ui with minions
-    yield put({ type: "SET_MINIONS", minions })
+    yield put(types.setMinions(minions))
 
   } catch (e) {
     console.log(e)

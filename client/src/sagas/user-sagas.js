@@ -2,6 +2,9 @@
 import { takeEvery } from 'redux-saga'
 import { call, put, } from 'redux-saga/effects'
 
+// import action types
+import * as types from '../actions/action-types';
+
 // import api
 import Client from '../Client'
 
@@ -21,7 +24,7 @@ function* getToken(action) {
     })
 
     // update state with results
-    yield put({ type: "SET_TOKEN", token })
+    yield put(types.setToken(token))
 
   } catch (e) {
     console.log(e)

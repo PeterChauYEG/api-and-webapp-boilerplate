@@ -26,3 +26,34 @@ test('renders without crashing', () => {
   expect(tree).toMatchSnapshot()
   
 });
+
+// render minions
+test('renders minions', () => {
+  
+  // declare prop
+  const minions = [
+    {
+      null
+    },
+    {
+      null
+    },
+    {
+      null
+    },    
+  ]
+  
+  // render component
+  const component = renderer.create(
+    <MinionsContainer 
+      minions={minions}
+      />
+  )
+
+  // render DOM tree
+  const tree = component.toJSON()
+  
+  // assertion
+  expect(tree).toMatchSnapshot()
+  
+});

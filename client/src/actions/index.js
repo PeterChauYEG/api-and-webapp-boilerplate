@@ -23,9 +23,10 @@ export const getMinionsRequest = (token) => {
   }
 }
 
-export const setMinions = () => {
+export const setMinions = (minions) => {
   return {
     type: types.SET_MINIONS,
+    minions,
   }
 }
 

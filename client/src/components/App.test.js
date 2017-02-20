@@ -8,16 +8,22 @@ import App from './App'
 
 // render test
 test('renders without crashing', () => {
-
+  
+  // declare props
+  let user = {
+    token: null,
+  }
+  
   // render component
   const component = renderer.create(
-    <App />
+    <App 
+      user={user} />
   )
 
   // render DOM tree
-  const tree = component.toJSON()
+  let tree = component.toJSON()
   
   // assertion
   expect(tree).toMatchSnapshot()
-  
+
 });
