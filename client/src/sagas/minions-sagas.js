@@ -3,7 +3,7 @@ import { takeEvery } from 'redux-saga'
 import { call, put, } from 'redux-saga/effects'
 
 // import action types
-import * as types from '../actions/action-types';
+import * as types from '../actions';
 
 // import api
 import Client from '../Client'

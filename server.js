@@ -35,7 +35,7 @@ import {
   DB_URL,
   DB_USER,
   SALT_ROUNDS,
-} from './config.js'
+} from './config'
 
 // import log directory
 const logDirectory = path.join(__dirname, 'log')
