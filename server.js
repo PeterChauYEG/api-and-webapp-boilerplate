@@ -24,6 +24,9 @@ import mongoose from 'mongoose'
 import Minion from './db/models/minion'
 import User from './db/models/user'
 
+// import routes
+import routes from './routes'
+
 // import config
 import {
   API_PASSWORD,
@@ -52,7 +55,7 @@ const accessLogStream = FileStreamRotator.getStream({
 });
 
 // initialize express
-const app = express()
+var app = express()
 
 // correct mongoose mpromise deprecation warning
 mongoose.Promise = global.Promise
@@ -79,9 +82,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 // serve the client
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
-});
+app.get('/', routes.client);
 
 // serve the /setup route
 // initializes the api
@@ -167,11 +168,12 @@ router.get('/', (req, res) => {
 // -----------------------------------------------------------------------------
 router.route('/authenticate')
   .post((req, res) => {
+    
     const {
       name,
       password,
     } = req.body
-
+  
     // find the user
     User.findOne({
       name,
@@ -179,17 +181,17 @@ router.route('/authenticate')
       if (err) {
         res.send(err)
       }
-
+  
       // check if user is exists
       if(!user) {
-
+  
         // return error
         return res.json({
           success: false,
           message: 'Authentication failed. User not found.',
         })
       }
-
+  
       // check if password matches the save bcrypt password
       bcrypt.compare(password, user.password, (err, isMatch) => {
         if (!isMatch) {
@@ -200,21 +202,21 @@ router.route('/authenticate')
             message: 'Authentication failed. Wrong password.'
           })
         }
-
+  
         // generate a token
         const token = jwt.sign(user, app.get('API_SECRET'), {
           expiresIn: 1440 // expires in 24 hours
         })
-
+  
         // return the information including token as JSON
         return res.json({
           success: true,
           message: 'enjoy your token!',
           token,
         })
-
+  
       })
-
+  
     })
   })
 
@@ -257,52 +259,10 @@ router.use((req, res, next) => {
 router.route('/minions')
 
   // get all minions (accessed at GET http://localhost:8081/api/minions)
-  .get((req, res) => {
+  .get(routes.minions.getMinions)
 
-    // get all minions from database
-    Minion.find({}, (err, minions) => {
-      if (err) {
-        return res.send(err)
-      }
-
-      // minions
-      const data = minions
-
-      // send minions back to client
-      return res.send(data)
-
-    })
-  })
-
-  // create a minions (accessed at POST http://localhost:8081/api/minions)
-  .post((req, res) => {
-    const {
-      body: {
-        minion: {
-          brand,
-          description,
-          name,
-        },
-      },
-    } = req
-
-    // create a new instance of the Minion model
-    const minion = new Minion({
-      brand,
-      dateCreated: new Date(),
-      description,
-      name,
-    })
-
-    // save the minion and check for errors
-    minion.save((err, minion) => {
-      if (err) {
-        return res.send(err)
-      }
-
-      return res.send(minion)
-    })
-  })
+  // create a minion (accessed at POST http://localhost:8081/api/minions)
+  .post(routes.minions.createMinion)
 
 // REGISTER OUR ROUTES ---------------------------------------------------
 // all of our routes will be prefixed with /api
