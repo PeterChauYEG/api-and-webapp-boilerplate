@@ -12,16 +12,12 @@ import jwt from 'jsonwebtoken'
 import bcrypt from 'bcrypt'
 
 // logging dep
-import * as fs from 'fs';
-import FileStreamRotator from 'file-stream-rotator'
 import morgan from 'morgan'
-import path from 'path'
 
 // database dep
-import mongoose from 'mongoose'
+import db from './db'
 
 // import db models
-import Minion from './db/models/minion'
 import User from './db/models/user'
 
 // import routes
@@ -37,31 +33,18 @@ import {
   DB_PORT,
   DB_URL,
   DB_USER,
+  log,
   SALT_ROUNDS,
 } from './config'
 
-// import log directory
-const logDirectory = path.join(__dirname, 'log')
+// initialize the log
+const accessLogStream = log.init
 
-// ensure log directory exists
-fs.existsSync(logDirectory) || fs.mkdirSync(logDirectory)
-
-// create a rotating write stream
-const accessLogStream = FileStreamRotator.getStream({
-  date_format: 'YYYY-MM-DD',
-  filename: path.join(logDirectory, 'access-%DATE%.log'),
-  frequency: 'daily',
-  verbose: false
-});
+// connect to our db
+db.connect()
 
 // initialize express
 var app = express()
-
-// correct mongoose mpromise deprecation warning
-mongoose.Promise = global.Promise
-
-// connect to our db
-mongoose.connect(`mongodb://${DB_USER}:${DB_PASSWORD}@${DB_URL}.mlab.com:${DB_PORT}/${DB_NAME}`)
 
 // secret variable
 app.set('API_SECRET', API_SECRET)
@@ -84,62 +67,6 @@ if (process.env.NODE_ENV === 'production') {
 // serve the client
 app.get('/', routes.client);
 
-// serve the /setup route
-// initializes the api
-app.get('/setup', (req, res) => {
-
-  // get number of user in db
-  User.count({}, (err, count) => {
-    if (err) {
-      res.send(err)
-    }
-
-    // check if there are already user in the db
-    if (count !== 0) {
-
-      // exit if there are already user in the DB
-      return res.send({
-        success: false,
-        message: 'api already initialized'
-      })
-    }
-
-    // bcrypt the password
-    // generate a salt and hash the password async
-    bcrypt.genSalt(SALT_ROUNDS, (err, salt) => {
-      if (err) {
-        res.send(err)
-      }
-
-      // hash the password
-      bcrypt.hash(API_PASSWORD, salt, (err, hash) => {
-        if (err) {
-          res.send(err)
-        }
-
-        // create an admin user
-        const admin = new User({
-          dateCreated: new Date(),
-          name: API_USER,
-          password: hash,
-          admin: true,
-        })
-
-        // save user to user table in DB
-        admin.save((err) => {
-          if (err) {
-            res.send(err)
-          }
-
-          res.json({ success: true })
-        })
-
-      })
-    })
-
-  })
-})
-
 // ROUTES FOR OUR API
 // =============================================================================
 const router = express.Router()
@@ -157,11 +84,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 // accessed at GET http://localhost:8081/api
-router.get('/', (req, res) => {
-  res.json({
-    message: 'Welcome to the api boilerplate.'
-  })
-})
+router.get('/', routes.api.root)
 
 
 // on routes that end in /authenticate
@@ -219,6 +142,12 @@ router.route('/authenticate')
   
     })
   })
+  
+
+// serve the /setup route
+// initializes the api
+router.route('/setup')
+  .get(routes.config.setup)
 
 // route middleware to verify a token
 router.use((req, res, next) => {
@@ -271,7 +200,6 @@ app.use('/api', router)
 // START THE SERVER
 // =============================================================================
 app.listen(app.get('port'), () => {
-  console.log(`Find the server at: http://localhost:${app.get('port')}/`); // eslint-disable-line no-console
+  console.log(`Find the client at: http://localhost:${app.get('port')}/`);
+  console.log(`Find the api at: http://localhost:${app.get('port')}/api/`);
 });
-
-console.log('Magic happens on port ' + app.get('port'))
