@@ -28,11 +28,6 @@ import {
   API_PASSWORD,
   API_SECRET,
   API_USER,
-  DB_NAME,
-  DB_PASSWORD,
-  DB_PORT,
-  DB_URL,
-  DB_USER,
   log,
   SALT_ROUNDS,
 } from './config'
