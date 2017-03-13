@@ -1,1 +1,1 @@
-api: NODE_ENV=production npm run server
+api: npm run server

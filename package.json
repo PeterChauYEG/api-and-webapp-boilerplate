@@ -25,10 +25,11 @@
     "react-dom": "^15.4.1"
   },
   "scripts": {
+    "config-env": "./node_modules/.bin/babel-node ./scripts/setup/configureEnv.js",
     "dev": "nf start -p 8080 --procfile Procfile.dev",
     "lint": "eslint *.js db/**",
     "server": "./node_modules/.bin/babel-node server.js",
-    "start": "nf start -p 8080 --procfile Procfile",    
+    "start": "nf start -p 8080 --procfile Procfile",
     "test": "echo test goes here"
   },
   "devDependencies": {

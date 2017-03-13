@@ -26,19 +26,10 @@ To Do:
 ## Installation
 
 ### Config Settings
-in the project root, create and edit the config file as desired
+in the project root, edit the config file `.sample-env` as desired
 
 ```
-// config.js
-export const API_PASSWORD = x
-export const API_SECRET = x
-export const API_USER = x
-export const DB_NAME = x
-export const DB_PASSWORD = x
-export const DB_PORT = x
-export const DB_URL = x
-export const DB_USER = x
-export const SALT_ROUNDS = x
+npm run config-env
 ```
 
 ### Api installation

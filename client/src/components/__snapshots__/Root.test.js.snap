@@ -2,6 +2,16 @@ exports[`test renders without crashing 1`] = `
 <div
   className="Root bg-lightest-blue pa3">
   <div
+    className="Header bg-dark-blue">
+    <p>
+      This app is currently in 
+      <b>
+        test
+      </b>
+       mode
+    </p>
+  </div>
+  <div
     className="Minions pa4">
     <h1>
       Minions

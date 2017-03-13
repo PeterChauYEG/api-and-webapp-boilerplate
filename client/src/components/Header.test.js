@@ -4,32 +4,20 @@ import React from 'react'
 import renderer from 'react-test-renderer'
 
 // import component
-import Root from './Root'
+import Header from './Header'
 
 // render test
 test('renders without crashing', () => {
   
   // declare prop
-  const actions = {
-    getMinionsRequest: () => {},
-    toggleMinionForm: () => {},
-  }
-  const minions = {
-    minions: [
-      
-    ],
-  }
-  const user = {
-    token: null,
-  }
+  const backgroundColor = ""
+  const children = <p>{process.env.NODE_ENV}</p>
   
-  // create component
+  // render component
   const component = renderer.create(
-    <Root
-      actions={actions} 
-      minions={minions}
-      user={user}
-      />
+    <Header backgroundColor={backgroundColor}>
+      {children}
+    </Header>
   )
 
   // render DOM tree
